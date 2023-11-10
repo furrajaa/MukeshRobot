@@ -56,8 +56,8 @@ async def mentionall(event):
     async for usr in client.iter_participants(chat_id):
         if not chat_id in spam_chats:
             break
-        usrnum += 5
-        usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}), "
+        usrnum += 1
+        usrtxt += f🐶"[{usr.first_name}](tg://user?id={usr.id}), "
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{msg}\n{usrtxt}"
@@ -65,8 +65,8 @@ async def mentionall(event):
             elif mode == "text_on_reply":
                 await msg.reply(usrtxt)
             await asyncio.sleep(3)
-            usrnum = 5
-            usrtxt = "👻"
+            usrnum = 0
+            usrtxt = ""
     try:
         spam_chats.remove(chat_id)
     except:
